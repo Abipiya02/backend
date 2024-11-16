@@ -12,7 +12,9 @@ app.use(express.json())
 app.use(cors())
 
 mongoose.connect(process.env.MONGODB_URL)
-
+app.get('/',(req,res)=>{
+    res.send("hello")
+})
 app.post('/register',(req,res)=>{
     empModel.create(req.body)
     .then(employees=>res.json(employees))
